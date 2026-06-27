@@ -65,7 +65,7 @@ Setiap host memiliki konfigurasi mandiri yang terdiri dari:
 ```bash
 cd ~
 mkdir -p github && cd github
-git clone [https://github.com/magityas/nixos-conf.git](https://github.com/magityas/nixos-conf.git)
+git clone https://github.com/magityas/nixos-conf
 cd nixos-conf
 
 ```
