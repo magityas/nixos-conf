@@ -8,7 +8,7 @@
   # Aplikasi user dipindah ke sini
   home.packages = with pkgs; [
     google-chrome brave zed-editor kitty zoom-us inkscape
-    easyeffects pavucontrol rclone tree-sitter gcc nodejs python3
+    easyeffects pavucontrol rclone tree-sitter gcc nodejs python3 vlc kdePackages.kate
   ];
 
   # Mapping config aplikasi dari folder repo ke ~/.config
@@ -16,6 +16,8 @@
     "zed".source = ./config-files/zed;
     "easyeffects".source = ./config-files/easyeffects;
     "pavucontrol.ini".source = ./config-files/pavucontrol.ini;
+    "nvim".source = ./config-files/nvim;
+    "kitty".source = ./config-files/kitty;
 
     # Config KDE Plasma 6
     "arkrc".source = ./config-files/kde/arkrc;
@@ -64,11 +66,13 @@
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
     ];
-    initExtra = ''
+    # SUDAH DIGANTI MENJADI initContent AGAR COCOK DENGAN NIXOS REKAYASA BARU
+    initContent = ''
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
   };
 
   home.file.".p10k.zsh".source = ./config-files/p10k.zsh;
   programs.home-manager.enable = true;
+  services.easyeffects.enable = true;
 }

@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
-
   # WAJIB UNTUK FLAKES
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -18,7 +16,7 @@
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-  
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -44,12 +42,12 @@
 
   networking.hostName = "NixOS";
   networking.networkmanager.enable = true;
- 
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
-  
+
   services.dbus.enable = true;
   services.blueman.enable = true;
 
@@ -71,11 +69,11 @@
   users.users.Kudo = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ]; 
+    extraGroups = [ "wheel" ];
   };
 
   environment.localBinInPath = true;
-  
+
   # Aplikasi CLI dasar sistem
   environment.systemPackages = with pkgs; [
     neovim wget git github-cli fastfetch cloudflare-warp wl-clipboard xclip
@@ -84,7 +82,7 @@
   programs.zsh.enable = true;
   programs.kdeconnect.enable = true;
   programs.mtr.enable = true;
-  
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -94,6 +92,6 @@
   services.displayManager.plasma-login-manager.enable = true;
   services.openssh.enable = true;
 
-  system.copySystemConfiguration = true;
-  system.stateVersion = "26.05"; 
+  system.copySystemConfiguration = false;
+  system.stateVersion = "26.05";
 }
