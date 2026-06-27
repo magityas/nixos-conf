@@ -1,0 +1,8 @@
+[Event/newScreenshotSaved]
+Action=
+
+[Event/ocrTextExtracted]
+Action=
+
+[Event/recordingSaved]
+Action=

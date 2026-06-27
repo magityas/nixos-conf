@@ -1,0 +1,7 @@
+[
+  {
+    "label": "Run Code Interactively",
+    "command": "clear && file=\"${ZED_FILE}\" && ext=\"${file##*.}\" && if [ \"$ext\" = \"py\" ]; then if [ -f shell.nix ]; then nix-shell --run \"python $file\"; else python \"$file\"; fi; elif [ \"$ext\" = \"js\" ]; then node \"$file\"; elif [ \"$ext\" = \"sh\" ]; then bash \"$file\"; elif [ \"$ext\" = \"c\" ]; then gcc \"$file\" -o /tmp/run_c && /tmp/run_c; elif [ \"$ext\" = \"cpp\" ]; then g++ \"$file\" -o /tmp/run_cpp && /tmp/run_cpp; elif [ \"$ext\" = \"html\" ]; then xdg-open \"$file\"; fi && echo '' && zsh -i",
+    "target": "terminal",
+  },
+]

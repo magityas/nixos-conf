@@ -1,0 +1,70 @@
+{
+  "icon_theme": {
+    "mode": "light",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
+  "auto_update_extensions": {
+    "material-icon-theme": true,
+  },
+  "cli_default_open_behavior": "existing_window",
+
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "title_bar": {
+    "show_sign_in": false,
+  },
+  "debugger": {
+    "button": true,
+  },
+  "diagnostics": {
+    "button": true,
+  },
+  "disable_ai": true,
+
+  // --- FONT EDITOR UTAMA ---
+  "buffer_font_family": "Inconsolata Nerd Font Mono",
+  "buffer_font_size": 24,
+  "ui_font_size": 16,
+
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Light",
+    "dark": "Catppuccin Mocha",
+  },
+  "cursor_blink": false,
+  "file_icons": true,
+  "format_on_save": "on",
+
+  // --- FONT TERMINAL ---
+  "terminal": {
+    "font_family": "Inconsolata Nerd Font Mono",
+    "font_size": 25,
+  },
+}

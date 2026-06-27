@@ -1,0 +1,15 @@
+[General]
+autoSaveImage=true
+clipboardGroup=PostScreenshotCopyImage
+rememberSelectionRect=Always
+
+[GuiConfig]
+quitAfterSaveCopyExport=true
+selectionRect=79,54,1841,1026
+
+[ImageSave]
+lastImageSaveLocation=file:///home/Kudo/Pictures/Screenshots/Screenshot_20260627_200001.png
+translatedScreenshotsFolder=Screenshots
+
+[VideoSave]
+translatedScreencastsFolder=Screencasts
