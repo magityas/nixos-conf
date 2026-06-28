@@ -1,8 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  # WAJIB UNTUK FLAKES
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  imports =
+    [ 
+      ./hardware-configuration.nix
+    ];
 
   nixpkgs.config.allowUnfree = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -16,13 +18,14 @@
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-
+  
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
   hardware.enableRedistributableFirmware = true;
 
+  # Mematikan daemon bawaan Plasma agar TLP bisa jalan
   services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
@@ -40,14 +43,15 @@
     options = "--delete-older-than 7d";
   };
 
+
   networking.hostName = "NixOS";
   networking.networkmanager.enable = true;
-
+ 
   hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
+  enable = true;
+  powerOnBoot = true;
   };
-
+  
   services.dbus.enable = true;
   services.blueman.enable = true;
 
@@ -69,20 +73,40 @@
   users.users.Kudo = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" ]; 
   };
 
   environment.localBinInPath = true;
-
-  # Aplikasi CLI dasar sistem
   environment.systemPackages = with pkgs; [
-    neovim wget git github-cli fastfetch cloudflare-warp wl-clipboard xclip
+    kdePackages.kamoso
+    pnpm
+    neovim 
+    wget
+    kitty
+    fastfetch
+    google-chrome
+    zed-editor
+    zoom-us
+    git
+    github-cli
+    brave
+    tree-sitter
+    gcc
+    inkscape
+    nodejs
+    python3
+    rclone
+    cloudflare-warp
+    wl-clipboard
+    xclip
+    easyeffects
+    pavucontrol
   ];
 
   programs.zsh.enable = true;
   programs.kdeconnect.enable = true;
   programs.mtr.enable = true;
-
+  
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -90,8 +114,9 @@
 
   services.desktopManager.plasma6.enable = true;
   services.displayManager.plasma-login-manager.enable = true;
+
   services.openssh.enable = true;
 
-  system.copySystemConfiguration = false;
-  system.stateVersion = "26.05";
+  system.copySystemConfiguration = true;
+  system.stateVersion = "26.05"; 
 }
